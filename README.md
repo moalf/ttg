@@ -34,7 +34,7 @@ or, compiled, as:
 cat file1.txt | ./ttg
 ```
 
-In the second form, even this below will work, though the input will be treated as a single stream (stdin) containing the the merged content of all the text files piped into the solution:
+In the second form, even this below will work, though the input will be treated as a single stream (stdin) containing the merged content of all the text files piped into the solution:
 
 ```sh
 cat file1.txt file2.txt fileN.txt | ./ttg
@@ -53,15 +53,15 @@ Given additional time, these are potential items where improvement could be requ
     - Add more test cases, including identification of edge ones.
 - Measure solution performance (speed, RAM).
 - Implement unicode chars support.
-- Research root cause of bug reported below.
+- Research root cause of bugs reported below.
 
 # Bugs
 
 ## Approximate Results
 
-When compared to searching in a text editor for a 3-word sentence string that you know is in the text, the results are approximate but not exact. Let me try to explain.
+When compared to searching in a text editor for a 3-word sentence string that you know is in the text, the results shown by `ttg` are  not exact. Let me try to explain.
 
-For example, if running the solution with the text file called `don_quixote.txt` (which is included in the `testdata` folder) as input to the program:
+For example, if running the solution with the text file called `don_quixote.txt` (which is included in the `testdata` folder) as the input to the program:
 
 ```sh
 ./ttg testdata/don_quixote.txt
@@ -74,9 +74,9 @@ you will notice that the top result shows as follows:
 ```
 However, when opening the same `testdata/don_quixote.txt` in a text editor and using the editor's string search feature to search for `said don quixote`, you will get a different number of occurrences; in this text file case, 426.
 
-Something similar happens for the case of `testdata/odyssey_of_homer.txt`. The solution reports 81 occurrences of `odysseus of many`, the editor finds 80 of them.
+Something similar happens for the case of `testdata/odyssey_of_homer.txt`. In this case just missing 1 occurrence. The solution reports 81 occurrences of `odysseus of many`, the editor finds 80 of them.
 
-Some possible explanation to this behavior could be the way some punctuaction signs or other symbols like, apostrophe or hypen, are currently handled by this solution; but again some more time would be needed to find the underlying root cause.
+Some possible explanation to this behavior could be the way some punctuaction signs or other symbols like apostrophe or hypen are currently handled by this solution, but again some more time would be needed to find the underlying root cause.
 
 ## Missing trigrams between buffered data chunks
 
@@ -105,13 +105,13 @@ CMD ["/bin/sh" "-c" "tail -f /dev/null"]
 Once you clone this repo, go to its main project folder (ttg), and having `docker` installed, run:
 
 ```sh
-docker build . <DOCKER_IMAGE:version>
+docker build . -t <DOCKER_IMAGE:version>
 ```
 
 For example:
 
 ```sh
-docker build . moalf/ttg:latest
+docker build . -t moalf/ttg:latest
 ```
 
 To run your image locally and connect to it, execute the following:
