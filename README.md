@@ -3,8 +3,6 @@
 
 `ttg` (`t`op `t`ri`g`rams) is a command line program that when given one text file path or more returns a list of the 100 most common three word sequences. This in the context of a coding challenge for the SSEDT position at NR.
 
-By `ajmolero@gmail.com`. Last updated: 02/14/2022
-
 # How To Run
 
 There are 2 ways to feed data into the program. In the first one, the program accepts as arguments a space-separated list of one or more file paths:
@@ -87,8 +85,6 @@ While buffering chunks of file data, we are missing combining the last two words
 # Additional Notes
 
 ## Docker
-
-### Dockerfile
 
 With the code in this repo, you can use the following `dockerfile` content to build a docker image in your local host:
 
